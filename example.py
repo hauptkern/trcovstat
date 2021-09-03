@@ -14,11 +14,11 @@ for i in range(0,len(weekdata)):
     color=None
     date=info["tarih"]
     casecount=info["gunluk_vaka"]
-    casecount=int(round(int(casecount.replace(".",""))))
+    casecount=int(casecount.replace(".",""))
     if i==0:
         nextcountdata=json.loads(weekdata[i+1])
         nextcasecount=nextcountdata["gunluk_vaka"]
-        nextcasecount=int(round(int(nextcasecount.replace(".",""))))
+        nextcasecount=int(nextcasecount.replace(".",""))
         if casecount>nextcasecount:
             color=red
         else:
@@ -26,7 +26,7 @@ for i in range(0,len(weekdata)):
     elif i>=1:
         prevcountdata=json.loads(weekdata[i-1])
         prevcasecount=prevcountdata["gunluk_vaka"]
-        prevcasecount=int(round(int(prevcasecount.replace(".",""))))
+        prevcasecount=int(prevcasecount.replace(".",""))
         if prevcasecount>casecount:
             color=green
         elif casecount>prevcasecount:
